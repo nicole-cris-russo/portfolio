@@ -1,37 +1,39 @@
 {
-  // Visit https://aka.ms/tsconfig to read more about this file
-  "compilerOptions": {
-    "module": "ESNext",
-    // Define o sistema de módulos (import/export) na saída.
-    "target": "ES6",
-    // Versão do JavaScript para a qual o código é emitido.
-    "moduleResolution": "Node",
-    // Resolve imports no estilo Node (node_modules, extensões, etc.).
-    "jsx": "react-jsx",
-    // JSX transform do React 17+ (não exige importar React em todo arquivo).
-    "strict": true,
-    // Ativa o conjunto de verificações de tipo rigorosas.
-    "sourceMap": true,
-    // Gera .map para mapear código compilado ao TypeScript no debug.
-    "isolatedModules": true,
-    // Cada arquivo deve compilar sozinho (exigido por Babel/SWC/esbuild).
-    "skipLibCheck": true,
-    // Não verifica tipos dentro de .d.ts de bibliotecas (build mais rápido).
-    "noEmit": true,
-    // Só analisa tipos; não grava arquivos .js (o bundler faz a emissão).
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    // Alias: `@/` aponta para a pasta `src/`.
-    "lib": ["dom", "dom.iterable", "esnext"],
-    // APIs globais tipadas: DOM, iteradores do DOM e recursos ES modernos.
-    "esModuleInterop": true,
-    // Permite import default de módulos CommonJS de forma previsível.
-    "incremental": true,
-    // Guarda cache de compilação (.tsbuildinfo) para builds incrementais.
-    "allowJs": true,
-    // Permite misturar arquivos .js com .ts no mesmo projeto.
-    "resolveJsonModule": true
-    // Permite `import x from './arquivo.json'` com tipagem.
-  }
+    // Visit https://aka.ms/tsconfig to read more about this file
+    "compilerOptions": {
+        "module": "ESNext",
+        // Define o sistema de módulos (import/export) na saída.
+        "target": "ES6",
+        // Versão do JavaScript para a qual o código é emitido.
+        "moduleResolution": "Node",
+        // Resolve imports no estilo Node (node_modules, extensões, etc.).
+        "jsx": "react-jsx",
+        // JSX transform do React 17+ (não exige importar React em todo arquivo).
+        "strict": true,
+        // Ativa o conjunto de verificações de tipo rigorosas.
+        "sourceMap": true,
+        // Gera .map para mapear código compilado ao TypeScript no debug.
+        "isolatedModules": true,
+        // Cada arquivo deve compilar sozinho (exigido por Babel/SWC/esbuild).
+        "skipLibCheck": true,
+        // Não verifica tipos dentro de .d.ts de bibliotecas (build mais rápido).
+        "noEmit": true,
+        // Só analisa tipos; não grava arquivos .js (o bundler faz a emissão).
+        "baseUrl": ".",
+        // Necessário para que `paths` (alias `@/`) funcione no TypeScript/IDE.
+        "paths": {
+            "@/*": ["./*"]
+        },
+        // Alias: `@/` aponta para a pasta `src/`.
+        "lib": ["dom", "dom.iterable", "esnext"],
+        // APIs globais tipadas: DOM, iteradores do DOM e recursos ES modernos.
+        "esModuleInterop": true,
+        // Permite import default de módulos CommonJS de forma previsível.
+        "incremental": true,
+        // Guarda cache de compilação (.tsbuildinfo) para builds incrementais.
+        "allowJs": true,
+        // Permite misturar arquivos .js com .ts no mesmo projeto.
+        "resolveJsonModule": true
+        // Permite `import x from './arquivo.json'` com tipagem.
+    }
 }

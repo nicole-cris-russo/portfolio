@@ -3,5 +3,5 @@ export const SocialMedia = () => {
         <div id="social-media">
             <h1>Social Media</h1>
         </div>
-    );
+    )
 }

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "text": "Olá! Sou Nicole Russo, desenvolvedora front-end focada em criar interfaces modernas, intuitivas e acessíveis."
+    },
+    {
+        "id": 2,
+        "text": "Trabalho principalmente com React, TypeScript e Tailwind CSS, desenvolvendo aplicações completas com integração eficiente de APIs. Tenho experiência na definição de contratos que facilitam a comunicação com o backend, além de criar interfaces a partir de Figma e ferramentas de IA."
+    },
+    {
+        "id": 3,
+        "text": "Valorizo UX/UI, responsividade e acessibilidade, sempre com código organizado e versionamento em Git. Também possuo conhecimento em outros frameworks como Astro, Vue e Angular."
+    },
+    {
+        "id": 4,
+        "text": "Meu objetivo é desenvolver soluções bem estruturadas, funcionais e que realmente façam sentido para quem usa. 😊"
+    }
+]

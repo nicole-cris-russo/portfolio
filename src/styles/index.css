@@ -1,5 +1,5 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@import "./buttons.css";
-@import "./fonts.css";
-@import "./common.css";
+@import './buttons.css';
+@import './fonts.css';
+@import './common.css';

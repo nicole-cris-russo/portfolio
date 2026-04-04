@@ -8,4 +8,4 @@ Este repositório é o meu **portfólio** em construção. Se quiser trocar uma 
 
 ---
 
-*Feito com café e muito `npm run dev`*
+_Feito com café e muito `npm run dev`_

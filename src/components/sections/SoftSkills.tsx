@@ -3,5 +3,5 @@ export const SoftSkills = () => {
         <div id="soft-skills">
             <h1>Soft Skills</h1>
         </div>
-    );
+    )
 }
