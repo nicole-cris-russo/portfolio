@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type DataKey = 'about-me' | 'projects' | 'soft-skills' | 'social-media'
+type DataKey = 'about-me' | 'projects' | 'soft-skills' | 'social-media' | 'me'
 
 const cache = new Map<string, any>()
 

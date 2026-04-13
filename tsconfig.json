@@ -22,7 +22,7 @@
         "baseUrl": ".",
         // Necessário para que `paths` (alias `@/`) funcione no TypeScript/IDE.
         "paths": {
-            "@/*": ["./*"]
+            "@/*": ["./src/*"]
         },
         // Alias: `@/` aponta para a pasta `src/`.
         "lib": ["dom", "dom.iterable", "esnext"],

@@ -5,7 +5,8 @@
         "description": "Descrição do projeto 1",
         "image": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/12/imagem-do-dia-nasa-galaxia-e1733176936252.jpg?w=1200&h=1200&crop=1",
         "link": "https://www.google.com",
-        "technologies": ["React", "TypeScript", "Tailwind CSS"]
+        "technologies": ["React", "TypeScript", "Tailwind CSS"],
+        "status": "completo"
     },
     {
         "id": 2,
@@ -13,6 +14,7 @@
         "description": "Descrição do projeto 2",
         "image": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/12/imagem-do-dia-nasa-galaxia-e1733176936252.jpg?w=1200&h=1200&crop=1",
         "link": "https://www.google.com",
-        "technologies": ["React", "TypeScript", "Tailwind CSS"]
+        "technologies": ["React", "TypeScript", "Tailwind CSS"],
+        "status": "em_desenvolvimento"
     }
 ]
