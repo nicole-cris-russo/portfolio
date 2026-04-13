@@ -6,7 +6,7 @@ type SidebarProps = {
     className?: string
 }
 
-export type SectionId = 'about-me' | 'projects' | 'soft-skills'
+export type SectionId = 'about-me' | 'projects' | 'contact'
 
 export const sections = [
     {
@@ -14,12 +14,12 @@ export const sections = [
         label: 'Sobre Mim',
     },
     {
-        id: 'soft-skills',
-        label: 'Habilidades',
-    },
-    {
         id: 'projects',
         label: 'Projetos',
+    },
+    {
+        id: 'contact',
+        label: 'Contato',
     },
 ] as const
 

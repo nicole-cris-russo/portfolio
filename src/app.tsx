@@ -3,13 +3,13 @@ import { Effect } from './components/animate-ui/primitives/effects/effect'
 import { MenuMobile } from './components/layout/MenuMobile'
 import { SectionId, Sidebar } from './components/layout/Sidebar'
 import { AboutMe } from './components/sections/AboutMe'
+import { Contact } from './components/sections/Contact'
 import { Projects } from './components/sections/Projects'
-import { SoftSkills } from './components/sections/SoftSkills'
 
 const sectionComponents: Record<SectionId, ComponentType> = {
     'about-me': AboutMe,
     projects: Projects,
-    'soft-skills': SoftSkills,
+    contact: Contact,
 }
 
 export default function App() {

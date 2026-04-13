@@ -4,7 +4,7 @@ type SidebarProps = {
     className?: string
 }
 
-export type SectionId = 'about-me' | 'projects' | 'soft-skills'
+export type SectionId = 'about-me' | 'projects' | 'contact'
 
 export const sections = [
     {
@@ -13,14 +13,14 @@ export const sections = [
         icon: '/img/me.svg',
     },
     {
-        id: 'soft-skills',
-        label: 'Habilidades',
-        icon: '/img/brain-2.svg',
-    },
-    {
         id: 'projects',
         label: 'Projetos',
         icon: '/img/web-site.svg',
+    },
+    {
+        id: 'contact',
+        label: 'Contato',
+        icon: '/img/brain-2.svg',
     },
 ] as const
 
