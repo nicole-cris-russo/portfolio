@@ -12,7 +12,7 @@ export const AboutMe = () => {
 
     return (
         <Container id="about-me">
-            <Title text="Sobre mim ʕ•́ᴥ•̀ʔっ" />
+            <Title text="Sobre mim" />
             <Magnetic>
                 <div className="flex flex-col shadow-personalized backdrop-blur-md border border-neutral-200 relative">
                     <HeaderButtons />

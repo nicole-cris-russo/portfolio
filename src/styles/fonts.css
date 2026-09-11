@@ -4,3 +4,9 @@
     font-family: 'Alice', serif;
     @apply text-neutral-900;
 }
+
+p,
+li,
+span {
+    font-size: 1.1rem;
+}
