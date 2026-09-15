@@ -1,17 +1,32 @@
-import { useState } from 'react'
-import { usePortfolio } from '../../context/PortfolioContext'
-import { CATEGORY_LABELS } from '../../lib/categories'
-import type { Project } from '../../types'
-import { ProjectModal } from '../ui/ProjectModal'
-import { SectionTitle } from '../ui/SectionTitle'
+import { useState } from "react";
+import { usePortfolio } from "../../context/PortfolioContext";
+import { CATEGORY_LABELS } from "../../lib/categories";
+import type { Project } from "../../types";
+import { PixelLoader } from "../ui/PixelLoader";
+import { ProjectModal } from "../ui/ProjectModal";
+import { SectionTitle } from "../ui/SectionTitle";
 
 /** Área Meus Projetos — listagem; clicar num projeto abre o modal. */
-export function Projects() {
-  const { projects, error } = usePortfolio()
-  const [selected, setSelected] = useState<Project | null>(null)
+export function Projects({ loading }: { loading: boolean }) {
+  const { projects, error } = usePortfolio();
+  const [selected, setSelected] = useState<Project | null>(null);
+
+  if (loading) {
+    return (
+      <section id="projetos" className="flex flex-col gap-6 py-16 scroll-mt-20">
+        <SectionTitle>Meus Projetos</SectionTitle>
+        <div className="w-full h-full flex items-center justify-center">
+          <PixelLoader />
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="projetos" className="flex flex-col gap-6 py-16 scroll-mt-20">
+    <section
+      id="projetos"
+      className="flex flex-col gap-6 py-16 scroll-mt-20 page-fade-in"
+    >
       <SectionTitle>Meus Projetos</SectionTitle>
 
       {error && <p>{error}</p>}
@@ -47,5 +62,5 @@ export function Projects() {
         <ProjectModal project={selected} onClose={() => setSelected(null)} />
       )}
     </section>
-  )
+  );
 }

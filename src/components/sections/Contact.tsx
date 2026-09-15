@@ -1,19 +1,31 @@
-import { usePortfolio } from '../../context/PortfolioContext'
-import { ExternalLinkIcon } from '../ui/ExternalLinkIcon'
-import { SectionTitle } from '../ui/SectionTitle'
+import { usePortfolio } from "../../context/PortfolioContext";
+import { ExternalLinkIcon } from "../ui/ExternalLinkIcon";
+import { PixelLoader } from "../ui/PixelLoader";
+import { SectionTitle } from "../ui/SectionTitle";
 
 const SOCIAL_ICONS: Record<string, string> = {
-  github: '/img/github.svg',
-  linkedin: '/img/linkedin.svg',
-  mail: '/img/mail.svg',
-}
+  github: "/img/github.svg",
+  linkedin: "/img/linkedin.svg",
+  mail: "/img/mail.svg",
+};
 
 /** Área Contato — redes sociais e contatos. */
-export function Contact() {
-  const { socialMedia, error } = usePortfolio()
+export function Contact({ loading }: { loading: boolean }) {
+  const { socialMedia, error } = usePortfolio();
+
+  if (loading) {
+    return (
+      <section id="contato" className="flex flex-col gap-6 py-16 scroll-mt-20">
+        <SectionTitle>Minhas Redes Sociais e Contatos</SectionTitle>
+        <div className="w-full h-full flex items-center justify-center">
+          <PixelLoader />
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section id="contato" className="flex flex-col gap-6 py-16 scroll-mt-20">
+    <section id="contato" className="flex flex-col gap-6 py-16 scroll-mt-20 page-fade-in">
       <SectionTitle>Minhas Redes Sociais e Contatos</SectionTitle>
 
       {error && <p>{error}</p>}
@@ -23,8 +35,8 @@ export function Contact() {
           <li key={social.id}>
             <a
               href={social.href}
-              target={social.external ? '_blank' : undefined}
-              rel={social.external ? 'noopener noreferrer' : undefined}
+              target={social.external ? "_blank" : undefined}
+              rel={social.external ? "noopener noreferrer" : undefined}
               className="flex items-center gap-3 bg-brand-gray border border-neutral-200 shadow-personalized p-3 hover:bg-white/55"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-neutral-900 bg-brand-gray shadow-personalized">
@@ -42,5 +54,5 @@ export function Contact() {
         ))}
       </ul>
     </section>
-  )
+  );
 }

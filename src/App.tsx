@@ -4,7 +4,6 @@ import { AboutMe } from "./components/sections/AboutMe";
 import { Contact } from "./components/sections/Contact";
 import { Home } from "./components/sections/Home";
 import { Projects } from "./components/sections/Projects";
-import { PageLoader } from "./components/ui/PageLoader";
 import { PortfolioProvider, usePortfolio } from "./context/PortfolioContext";
 
 function Landing() {
@@ -15,7 +14,7 @@ function Landing() {
       <div className="fixed inset-0 z-0">
         <Grainient
           color1="#000000"
-          color2="#7d848f"
+          color2="#bebab6"
           color3="#000000"
           timeSpeed={0.5}
           colorBalance={0}
@@ -39,19 +38,15 @@ function Landing() {
         />
       </div>
 
-      <PageLoader visible={loading} />
-
-      {!loading && (
-        <div className="relative z-10 page-fade-in">
-          <Header />
-          <main className="max-w-5xl mx-auto px-4 md:px-8">
-            <Home />
-            <AboutMe />
-            <Projects />
-            <Contact />
-          </main>
-        </div>
-      )}
+      <div className="relative z-10">
+        <Header />
+        <main className="max-w-6xl mx-auto px-4 md:px-8">
+          <Home loading={loading} />
+          <AboutMe loading={loading} />
+          <Projects loading={loading} />
+          <Contact loading={loading} />
+        </main>
+      </div>
     </div>
   );
 }
