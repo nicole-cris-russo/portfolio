@@ -1,15 +1,36 @@
 {
-  "paragraphs": [
-    "Olá! Me chamo Nicole, sou desenvolvedora front-end.",
-    "Atualmente estou em formação em Cibersegurança na CISCO NETWORK ACADEMY.",
-    "Minhas principais tecnologias de trabalho são React, TypeScript e Tailwind CSS, com integração de APIs, além de colaborar no design com ferramentas como Figma e IA.",
-    "Valorizo UX/UI, responsividade e acessibilidade, sempre com código organizado e versionado em Git. Além do mais, possuo conhecimento em outros frameworks/ferramentas, como: Next.js, Astro, Vue e Angular.",
-    "Hoje, meu principal objetivo é o auto-desenvolvimento, na evolução pessoal e profissional, a partir de desafios e novos aprendizados."
-  ],
   "info": {
     "name": "Nicole Russo",
     "email": "nicolerusso2020@gmail.com",
     "phone": "+55 (92) 99328-4747",
     "location": "Itacoatiara - AM - Brasil"
-  }
+  },
+  "articles": [
+    {
+      "id": "frontend",
+      "kicker": "Desenvolvimento",
+      "title": "Principais habilidades de frontend",
+      "image": "/nicole-4x5.png",
+      "imageAlt": "Foto de Nicole Russo",
+      "imageSide": "left",
+      "paragraphs": [
+        "Trabalho principalmente com React, TypeScript e Tailwind CSS, construindo interfaces responsivas e acessíveis, com integração de APIs e atenção a UX/UI.",
+        "Colaboro no design com Figma e ferramentas de IA, sempre com código organizado e versionado em Git.",
+        "Também tenho experiência com Next.js, Astro, Vue e Angular, o que me permite circular entre stacks sem perder o foco em qualidade e consistência visual."
+      ]
+    },
+    {
+      "id": "cybersecurity",
+      "kicker": "Mulher Digital Americas",
+      "title": "Nova trilha: cibersegurança na Cisco",
+      "image": "/img/print-redes.png",
+      "imageAlt": "Ilustração de Nicole Russo",
+      "imageSide": "right",
+      "paragraphs": [
+        "Estou iniciando uma nova trilha de aprendizado em cibersegurança pela Cisco Networking Academy, por meio da iniciativa Mulher Digital Americas.",
+        "O programa amplia minha formação para redes, fundamentos de segurança e boas práticas de proteção de sistemas — um complemento direto ao trabalho em frontend.",
+        "O objetivo é unir interface e segurança: desenvolver com mais consciência sobre riscos, infraestrutura e o impacto de cada decisão no produto final."
+      ]
+    }
+  ]
 }

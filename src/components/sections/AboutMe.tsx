@@ -10,6 +10,7 @@ import {
 import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiAstro, SiMysql, SiPrismic } from "react-icons/si";
 import { usePortfolio } from "../../context/PortfolioContext";
+import type { AboutArticle } from "../../types";
 import { LogoLoop } from "../LogoLoop";
 import { PixelLoader } from "../ui/PixelLoader";
 import { SectionTitle } from "../ui/SectionTitle";
@@ -69,7 +70,59 @@ const techLogos = [
   },
 ];
 
-/** Área Sobre Mim — texto sobre mim e foto. */
+function NewspaperArticle({ article }: { article: AboutArticle }) {
+  const image = (
+    <figure className="md:col-span-2">
+      <img
+        src={article.image}
+        alt={article.imageAlt}
+        className="w-full h-full max-h-80 md:max-h-none object-cover"
+      />
+    </figure>
+  );
+
+  const copy = (
+    <div className="md:col-span-3 flex flex-col gap-3 max-md:text-sm">
+      <p className="text-xs uppercase tracking-[0.2em] text-neutral-600">
+        {article.kicker}
+      </p>
+      <h3 className="font-bold text-2xl md:text-3xl leading-tight">
+        {article.title}
+      </h3>
+      <div className="h-px w-16 bg-neutral-900" />
+      {article.paragraphs.map((paragraph, index) => (
+        <p
+          key={paragraph}
+          className={
+            index === 0
+              ? "first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:leading-none"
+              : undefined
+          }
+        >
+          {paragraph}
+        </p>
+      ))}
+    </div>
+  );
+
+  return (
+    <article className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 items-start">
+      {article.imageSide === "left" ? (
+        <>
+          {image}
+          {copy}
+        </>
+      ) : (
+        <>
+          {copy}
+          {image}
+        </>
+      )}
+    </article>
+  );
+}
+
+/** Área Sobre Mim — layout de jornal antigo. */
 export function AboutMe({ loading }: { loading: boolean }) {
   const { aboutMe, error } = usePortfolio();
 
@@ -87,6 +140,13 @@ export function AboutMe({ loading }: { loading: boolean }) {
     );
   }
 
+  const frontend = aboutMe?.articles.find(
+    (article) => article.id === "frontend",
+  );
+  const cybersecurity = aboutMe?.articles.find(
+    (article) => article.id === "cybersecurity",
+  );
+
   return (
     <section
       id="sobre-mim"
@@ -96,24 +156,13 @@ export function AboutMe({ loading }: { loading: boolean }) {
 
       {error && <p>{error}</p>}
 
-      {aboutMe && (
-        <div className="bg-brand-gray border border-neutral-200 shadow-personalized p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-            <img
-              src="/nicole-4x5.png"
-              alt="Foto de Nicole Russo"
-              className="mx-auto w-full max-w-60 border border-neutral-900 shadow-personalized object-cover"
-            />
+      {aboutMe && frontend && cybersecurity && (
+        <div className="bg-brand-gray shadow-personalized p-5 md:p-8">
+          <NewspaperArticle article={frontend} />
 
-            <div className="md:col-span-2 flex flex-col gap-4 max-md:text-sm">
-              {aboutMe.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </div>
-          <div className="w-full overflow-hidden py-14">
+          <div className="border-y-2 border-neutral-900/50 my-8 pb-6 pt-8 overflow-hidden">
             <LogoLoop
-              // @ts-ignore
+              // @ts-expect-error logos aceita nós React no componente JS
               logos={techLogos}
               speed={100}
               direction="left"
@@ -127,6 +176,8 @@ export function AboutMe({ loading }: { loading: boolean }) {
               ariaLabel="Tecnologias que eu uso"
             />
           </div>
+
+          <NewspaperArticle article={cybersecurity} />
         </div>
       )}
     </section>

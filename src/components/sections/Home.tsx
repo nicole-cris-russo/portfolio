@@ -24,8 +24,8 @@ export function Home({ loading }: { loading: boolean }) {
       id="inicio"
       className="h-[90vh] flex items-center justify-center py-10 page-fade-in"
     >
-      <div className="flex items-center gap-6 justify-between w-full">
-        <div>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-center w-full">
+        <div className="md:col-span-3">
           <p className="text-white text-2xl font-bold mb-20">
             Seja bem-vindo(a) ao meu portfólio!
           </p>
@@ -46,12 +46,11 @@ export function Home({ loading }: { loading: boolean }) {
           />
           <p className="text-white mt-2">Sou Desenvolvedora Frontend</p>
         </div>
-        <img
-          src="/img/nicole-moldura-paint.png"
+        {/* <img
+          src=""
           alt="Nicole Russo"
-          width={380}
-          className="mb-5"
-        />
+          className="mb-5 w-full md:col-span-2"
+        /> */}
       </div>
     </section>
   );

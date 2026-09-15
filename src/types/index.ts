@@ -15,8 +15,18 @@ export interface Project {
   content: string
 }
 
-export interface AboutMe {
+export interface AboutArticle {
+  id: string
+  kicker: string
+  title: string
+  image: string
+  imageAlt: string
+  imageSide: 'left' | 'right'
   paragraphs: string[]
+}
+
+export interface AboutMe {
+  articles: AboutArticle[]
   info: {
     name: string
     email: string
