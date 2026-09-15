@@ -1,20 +1,50 @@
 [
-    {
-        "id": 1,
-        "name": "Projeto 1",
-        "description": "Descrição do projeto 1",
-        "image": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/12/imagem-do-dia-nasa-galaxia-e1733176936252.jpg?w=1200&h=1200&crop=1",
-        "link": "https://www.google.com",
-        "technologies": ["React", "TypeScript", "Tailwind CSS"],
-        "status": "completo"
-    },
-    {
-        "id": 2,
-        "name": "Projeto 2",
-        "description": "Descrição do projeto 2",
-        "image": "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/12/imagem-do-dia-nasa-galaxia-e1733176936252.jpg?w=1200&h=1200&crop=1",
-        "link": "https://www.google.com",
-        "technologies": ["React", "TypeScript", "Tailwind CSS"],
-        "status": "em_desenvolvimento"
-    }
+  {
+    "id": 1,
+    "slug": "projeto-1",
+    "name": "Projeto 1",
+    "description": "Site institucional desenvolvido com foco em performance, responsividade e boas práticas de SEO.",
+    "image": "/img/background.webp",
+    "category": "web",
+    "siteUrl": "https://example.com/projeto-1",
+    "technologies": ["React", "TypeScript", "Tailwind CSS"],
+    "status": "completo",
+    "content": "<h2>Sobre o projeto</h2><p>Este projeto foi desenvolvido para apresentar uma marca na web com uma experiência rápida e acessível em qualquer dispositivo.</p><h3>Principais desafios</h3><p>Organização do design system, otimização de imagens e integração com APIs externas.</p><p>Confira mais detalhes no <a href=\"https://example.com/projeto-1\" target=\"_blank\" rel=\"noopener noreferrer\">site publicado</a>.</p>"
+  },
+  {
+    "id": 2,
+    "slug": "projeto-2",
+    "name": "Projeto 2",
+    "description": "Aplicação web em desenvolvimento com dashboard interativo e consumo de API em tempo real.",
+    "image": "/img/background.webp",
+    "category": "web",
+    "siteUrl": "https://example.com/projeto-2",
+    "technologies": ["React", "TypeScript", "Tailwind CSS", "API REST"],
+    "status": "em_desenvolvimento",
+    "content": "<h2>Sobre o projeto</h2><p>Aplicação em desenvolvimento contínuo, com foco em visualização de dados e usabilidade.</p><h3>Status atual</h3><p>Funcionalidades principais implementadas; melhorias de UX em andamento.</p>"
+  },
+  {
+    "id": 3,
+    "slug": "laboratorio-interface",
+    "name": "Laboratório de Interface",
+    "description": "Coleção de experimentos de UI: micro-interações, layouts criativos e estudos de acessibilidade.",
+    "image": "/img/background.webp",
+    "category": "experimental",
+    "siteUrl": null,
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "status": "completo",
+    "content": "<h2>Sobre o laboratório</h2><p>Espaço de experimentação onde testo ideias de interface antes de aplicá-las em projetos reais.</p><h3>Experimentos</h3><p>Estudos de grid, tipografia, contraste de cores e navegação por teclado.</p>"
+  },
+  {
+    "id": 4,
+    "slug": "estudo-redes",
+    "name": "Estudo de Redes",
+    "description": "Trabalho de curso sobre fundamentos de redes de computadores e práticas básicas de cibersegurança.",
+    "image": "/img/background.webp",
+    "category": "cybersecurity",
+    "siteUrl": null,
+    "technologies": ["Redes", "Segurança", "Linux"],
+    "status": "completo",
+    "content": "<h2>Sobre o estudo</h2><p>Documentação de um trabalho de curso cobrindo topologias de rede, protocolos e boas práticas de segurança.</p><h3>Tópicos abordados</h3><p>Modelo OSI, TCP/IP, firewalls e análise de vulnerabilidades em ambiente controlado.</p>"
+  }
 ]

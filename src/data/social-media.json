@@ -1,0 +1,23 @@
+[
+  {
+    "id": "github",
+    "label": "GitHub",
+    "hint": "@nicole-cris-russo",
+    "href": "https://github.com/nicole-cris-russo",
+    "external": true
+  },
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "hint": "nicolerusso01",
+    "href": "https://www.linkedin.com/in/nicolerusso01/",
+    "external": true
+  },
+  {
+    "id": "mail",
+    "label": "E-mail",
+    "hint": "nicolerusso2020@gmail.com",
+    "href": "mailto:nicolerusso2020@gmail.com",
+    "external": false
+  }
+]

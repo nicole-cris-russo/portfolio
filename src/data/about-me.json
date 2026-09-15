@@ -1,18 +1,15 @@
-[
-    {
-        "id": 1,
-        "text": "Olá! Me chamo Nicole, e sou desenvolvedora front-end. 👩‍💻"
-    },
-    {
-        "id": 2,
-        "text": "Minhas principais tecnologias de trabalho são React, TypeScript e Tailwind CSS, com integração de APIs, além de colaborar no design com ferramentas como Figma e IA."
-    },
-    {
-        "id": 3,
-        "text": "Valorizo UX/UI, responsividade e acessibilidade, sempre com código organizado e versionado em Git. Além do mais, possuo conhecimento em outros frameworks/ferramentas, como: Next.js, Astro, Vue e Angular."
-    },
-    {
-        "id": 4,
-        "text": "Hoje, meu principal objetivo é o auto-desenvolvimento, na evolução pessoal e profissional, a partir de desafios e novos aprendizados. ✍️"
-    }
-]
+{
+  "paragraphs": [
+    "Olá! Me chamo Nicole, sou desenvolvedora front-end.",
+    "Atualmente estou em formação em Cibersegurança na CISCO NETWORK ACADEMY.",
+    "Minhas principais tecnologias de trabalho são React, TypeScript e Tailwind CSS, com integração de APIs, além de colaborar no design com ferramentas como Figma e IA.",
+    "Valorizo UX/UI, responsividade e acessibilidade, sempre com código organizado e versionado em Git. Além do mais, possuo conhecimento em outros frameworks/ferramentas, como: Next.js, Astro, Vue e Angular.",
+    "Hoje, meu principal objetivo é o auto-desenvolvimento, na evolução pessoal e profissional, a partir de desafios e novos aprendizados."
+  ],
+  "info": {
+    "name": "Nicole Russo",
+    "email": "nicolerusso2020@gmail.com",
+    "phone": "+55 (92) 99328-4747",
+    "location": "Itacoatiara - AM - Brasil"
+  }
+}

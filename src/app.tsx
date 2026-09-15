@@ -1,44 +1,67 @@
-import { useState, type ComponentType } from 'react'
-import { Effect } from './components/animate-ui/primitives/effects/effect'
-import { MenuMobile } from './components/layout/MenuMobile'
-import { SectionId, Sidebar } from './components/layout/Sidebar'
-import { AboutMe } from './components/sections/AboutMe'
-import { Contact } from './components/sections/Contact'
-import { Projects } from './components/sections/Projects'
+import Grainient from "./components/Grainient";
+import { Header } from "./components/layout/Header";
+import { AboutMe } from "./components/sections/AboutMe";
+import { Contact } from "./components/sections/Contact";
+import { Home } from "./components/sections/Home";
+import { Projects } from "./components/sections/Projects";
+import { PageLoader } from "./components/ui/PageLoader";
+import { PortfolioProvider, usePortfolio } from "./context/PortfolioContext";
 
-const sectionComponents: Record<SectionId, ComponentType> = {
-    'about-me': AboutMe,
-    projects: Projects,
-    contact: Contact,
-}
+function Landing() {
+  const { loading } = usePortfolio();
 
-export default function App() {
-    const [activeId, setActiveId] = useState<SectionId>('about-me')
+  return (
+    <div className="min-h-screen">
+      <div className="fixed inset-0 z-0">
+        <Grainient
+          color1="#000000"
+          color2="#7d848f"
+          color3="#000000"
+          timeSpeed={0.5}
+          colorBalance={0}
+          warpStrength={1}
+          warpFrequency={5}
+          warpSpeed={2}
+          warpAmplitude={35}
+          blendAngle={0}
+          blendSoftness={0.05}
+          rotationAmount={500}
+          noiseScale={2}
+          grainAmount={0.1}
+          grainScale={2}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.9}
+        />
+      </div>
 
-    const ActiveSection = sectionComponents[activeId]
+      <PageLoader visible={loading} />
 
-    return (
-        <div className="min-h-screen content-app-container grid grid-cols-1 lg:grid-cols-12 bg-cover bg-center max-w-7xl mx-auto">
-            <Sidebar
-                activeId={activeId}
-                setActiveId={setActiveId}
-            />
-            <MenuMobile
-                activeId={activeId}
-                setActiveId={setActiveId}
-            />
-            <main className="min-h-screen col-span-12 lg:col-span-10 p-5 lg:p-20 z-10">
-                <div className="mx-auto h-full max-w-4xl flex items-center justify-center">
-                    <Effect
-                        key={activeId}
-                        slide={{ direction: 'left' }}
-                        fade={{ initialOpacity: 0, opacity: 1 }}
-                        blur={{ initialBlur: 5, blur: 0 }}
-                    >
-                        <ActiveSection />
-                    </Effect>
-                </div>
-            </main>
+      {!loading && (
+        <div className="relative z-10 page-fade-in">
+          <Header />
+          <main className="max-w-5xl mx-auto px-4 md:px-8">
+            <Home />
+            <AboutMe />
+            <Projects />
+            <Contact />
+          </main>
         </div>
-    )
+      )}
+    </div>
+  );
 }
+
+function App() {
+  return (
+    <PortfolioProvider>
+      <Landing />
+    </PortfolioProvider>
+  );
+}
+
+export default App;

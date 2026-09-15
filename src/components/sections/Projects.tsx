@@ -1,69 +1,51 @@
-import useData from '@/hooks/useData'
-import { ExternalLink } from 'lucide-react'
-import { Magnetic } from '../animate-ui/primitives/effects/magnetic'
-import Container from '../layout/Container'
-import HeaderButtons from '../partials/HeaderButtons'
-import { Title } from '../ui/Titles'
+import { useState } from 'react'
+import { usePortfolio } from '../../context/PortfolioContext'
+import { CATEGORY_LABELS } from '../../lib/categories'
+import type { Project } from '../../types'
+import { ProjectModal } from '../ui/ProjectModal'
+import { SectionTitle } from '../ui/SectionTitle'
 
-export const Projects = () => {
-    const { data: projects, loading, error } = useData('projects')
-    if (loading) return <div>Loading...</div>
-    if (error) return <div>Error: {error.message}</div>
+/** Área Meus Projetos — listagem; clicar num projeto abre o modal. */
+export function Projects() {
+  const { projects, error } = usePortfolio()
+  const [selected, setSelected] = useState<Project | null>(null)
 
-    return (
-        <Container id="projects">
-            <Title text="Projetos" />
-            <div className="flex flex-wrap justify-end items-center gap-10 w-full">
-                {projects.map(
-                    (project: {
-                        id: number
-                        name: string
-                        description: string
-                        image: string
-                        link: string
-                        technologies: string[]
-                        status: 'completo' | 'em_desenvolvimento'
-                    }) => (
-                        <Magnetic key={project.id}>
-                            <div className="w-full md:w-[350px] shadow-personalized border border-neutral-200">
-                                <HeaderButtons />
-                                <div className="p-4 space-y-4 cursor-default select-none">
-                                    <div>
-                                        <a
-                                            href={project.link}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="hover:underline"
-                                        >
-                                            <h2 className="shadow-personalized font-bold text-lg bg-brand-gray px-2 py-1 flex items-center justify-between gap-2">
-                                                {project.name}
-                                                <ExternalLink className="w-4 h-4" />
-                                            </h2>
-                                        </a>
-                                    </div>
-                                    <div className="relative">
-                                        <img
-                                            src={project.image}
-                                            alt={project.name}
-                                            className="aspect-video w-full"
-                                        />
-                                    </div>
-                                    <ul className="flex flex-wrap justify-between items-center gap-2">
-                                        {project.technologies.map((technology: string) => (
-                                            <li
-                                                key={technology}
-                                                className="border px-2 py-1 bg-brand-gray text-sm shadow-personalized"
-                                            >
-                                                {technology}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </Magnetic>
-                    )
-                )}
+  return (
+    <section id="projetos" className="flex flex-col gap-6 py-16 scroll-mt-20">
+      <SectionTitle>Meus Projetos</SectionTitle>
+
+      {error && <p>{error}</p>}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project) => (
+          <button
+            key={project.id}
+            type="button"
+            onClick={() => setSelected(project)}
+            className="flex flex-col text-left border border-neutral-200 bg-brand-gray shadow-personalized hover:-translate-y-1 transition-transform"
+          >
+            <img
+              src={project.image}
+              alt={`Capa do projeto ${project.name}`}
+              className="aspect-video w-full object-cover"
+            />
+
+            <div className="p-4 flex flex-col gap-2">
+              <span className="self-start text-xs border border-neutral-900 bg-brand-gray px-2 py-1 shadow-personalized">
+                {CATEGORY_LABELS[project.category]}
+              </span>
+              <h3 className="font-bold text-lg">{project.name}</h3>
+              <p className="text-sm text-neutral-700 line-clamp-3">
+                {project.description}
+              </p>
             </div>
-        </Container>
-    )
+          </button>
+        ))}
+      </div>
+
+      {selected && (
+        <ProjectModal project={selected} onClose={() => setSelected(null)} />
+      )}
+    </section>
+  )
 }

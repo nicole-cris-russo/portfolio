@@ -1,40 +1,38 @@
 import { useEffect, useState } from 'react'
 
-type DataKey = 'about-me' | 'projects' | 'soft-skills' | 'social-media' | 'me'
-
-const cache = new Map<string, any>()
-
-const useData = (key: DataKey) => {
-    const [data, setData] = useState<any>(null)
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState<Error | null>(null)
-
-    useEffect(() => {
-        if (cache.has(key)) {
-            setData(cache.get(key))
-            setLoading(false)
-            return
-        }
-
-        const loadData = async () => {
-            try {
-                const module = await import(`../data/${key}.json`)
-                const data = module.default
-                cache.set(key, data)
-                setData(data)
-            } catch (err) {
-                const error = err instanceof Error ? err : new Error('Failed to load data')
-                setError(error)
-                console.error(error)
-            } finally {
-                setLoading(false)
-            }
-        }
-
-        loadData()
-    }, [key])
-
-    return { data, loading, error }
+interface UseDataResult<T> {
+  data: T | null
+  loading: boolean
+  error: string | null
 }
 
-export default useData
+/** Hook genérico que consome uma função de "API" e controla loading/erro. */
+export function useData<T>(fetcher: () => Promise<T>): UseDataResult<T> {
+  const [data, setData] = useState<T | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    let active = true
+
+    setLoading(true)
+    setError(null)
+
+    fetcher()
+      .then((result) => {
+        if (active) setData(result)
+      })
+      .catch(() => {
+        if (active) setError('Não foi possível carregar os dados.')
+      })
+      .finally(() => {
+        if (active) setLoading(false)
+      })
+
+    return () => {
+      active = false
+    }
+  }, [fetcher])
+
+  return { data, loading, error }
+}
