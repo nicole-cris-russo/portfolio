@@ -53,16 +53,16 @@ const techLogos = [
     title: "Node.js",
     href: "https://nodejs.org",
   },
-  {
-    node: <SiAstro />,
-    title: "Astro",
-    href: "https://astro.build",
-  },
-  {
-    node: <FaVuejs />,
-    title: "Vue.js",
-    href: "https://vuejs.org",
-  },
+  // {
+  //   node: <SiAstro />,
+  //   title: "Astro",
+  //   href: "https://astro.build",
+  // },
+  // {
+  //   node: <FaVuejs />,
+  //   title: "Vue.js",
+  //   href: "https://vuejs.org",
+  // },
   {
     node: <FaFigma />,
     title: "Figma",
